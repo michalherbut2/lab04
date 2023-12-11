@@ -62,7 +62,7 @@
                     <jlinkImageName>guifx</jlinkImageName>
                     <launcher>launcher</launcher>
                     <jlinkZipName>guifxzip</jlinkZipName>
-                    <mainClass>gui/pl.edu.pwr.tkubik.jp.lab04.gui.HelloApplication</mainClass>
+                    <mainClass>gui/pl.edu.pwr.tkubik.jp.lab04.gui.Gui</mainClass>
                 </configuration>
 
                 <executions>
@@ -70,7 +70,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>gui/pl.edu.pwr.tkubik.jp.lab04.gui.HelloApplication</mainClass>
+                            <mainClass>gui/pl.edu.pwr.tkubik.jp.lab04.gui.Gui</mainClass>
                         </configuration>
                     </execution>
                 </executions>
@@ -83,7 +83,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>pl.edu.pwr.tkubik.jp.lab04.gui.HelloApplication</mainClass>
+                            <mainClass>pl.edu.pwr.tkubik.jp.lab04.gui.Gui</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -105,6 +105,29 @@
                                 </transformer>
                             </transformers>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <!--                <version>3.3.0</version> &lt;!&ndash; Use the latest version &ndash;&gt;-->
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>pl.edu.pwr.tkubik.jp.lab04.gui.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
